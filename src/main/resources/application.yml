@@ -1,0 +1,72 @@
+# core-settings
+
+spring:
+
+  profiles.active: production
+
+  main:
+    web-environment: true
+    show-banner: false
+    log-startup-info: false
+
+  server:
+    port: 8080
+    address: 127.0.0.1
+    sessionTimeout: 30
+    contextPath: /root
+
+  freemarker:
+    templateLoaderPath: classpath:/templates/
+    prefix:
+    suffix: .ftl
+    cache: false
+    mode: HTML5
+
+security:
+  basic:
+    enabled: true
+    path: /secure/**
+  user:
+    name: admin
+    role: ADMIN
+    password: admin
+
+http:
+  mappers:
+    jsonPrettyPrint: true
+
+---
+
+spring:
+  profiles: development
+
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:./h2data;MODE=MySQL
+    username: sa
+    password: sa
+    properties:
+        hibernate.dialect: org.hibernate.dialect.H2Dialect
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+---
+
+spring:
+  profiles: production
+
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/application?createDatabaseIfNotExist=true
+    username: root
+    password: root
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
