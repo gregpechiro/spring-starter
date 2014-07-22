@@ -1,11 +1,8 @@
-package com.cagnosolutions.starter.app.controller
-import com.cagnosolutions.starter.app.domain.User
-import com.cagnosolutions.starter.app.repository.UserRepository
+package com.cagnosolutions.starter.app.user
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 
@@ -21,27 +18,28 @@ class UserController {
     @Autowired
     UserRepository dao
 
-    @RequestMapping(method=[RequestMethod.GET])
-    String home(Model model) {
+    @RequestMapping(method=RequestMethod.GET)
+    String viewAll(Model model) {
         model.addAttribute("users", dao.findAll())
         "user"
     }
 
-    @RequestMapping(method=[RequestMethod.POST])
-    String addOrEdit(@RequestBody User user) {
-        // implement add or edit
+    @RequestMapping(method=RequestMethod.POST)
+    String addOrEdit(User user) {
+        user = dao.save(user)
+        "redirect:/user/" + user.id
     }
 
-    @RequestMapping(value=["/{id}"], method=[RequestMethod.GET])
+    @RequestMapping(value=["/{id}"], method=RequestMethod.GET)
     String view(@PathVariable Long id, Model model) {
-        model.addAttribute("user", dao.findOne(id))
-        model.addAttribute("users", dao.findAll())
+        model.addAllAttributes([user: dao.findOne(id), users: dao.findAll()])
         "user"
     }
 
-    @RequestMapping(value=["/{id}"], method=[RequestMethod.POST])
+    @RequestMapping(value=["/{id}"], method=RequestMethod.POST)
     String delete(@PathVariable Long id) {
-        // implement delete
+        dao.delete(id)
+        "redirect:/user"
     }
 
 }

@@ -37,23 +37,25 @@
 <div id="content" class="container">
     <div class="col-sm-4">
         <div class="panel panel-default">
-            <div class="panel-heading">Add or Update User</div>
+            <div class="panel-heading">Add or Update User <span class="pull-right"><a href="/user">Add New</a></span></div>
             <div class="panel-body">
-                <form id="" role="form" method="post" action="/user">
+                <form role="form" method="post" action="/user">
+                    <input type="hidden" name="id" value="${(user.id)!}"/>
                     <div class="form-group">
-                        <input type="text" name="name" value="${(user.name)!}" class="form-control" placeholder="Name" required="true" autofocus="true"/>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" value="${(user.name)!}" class="form-control" placeholder="Name" required="true" autofocus="true"/>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="email" value="${(user.email)!}" class="form-control" placeholder="Email" required="true"/>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" value="${(user.email)!}" class="form-control" placeholder="Email" required="true"/>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="username" value="${(user.username)!}" class="form-control" placeholder="Username" required="true"/>
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" value="${(user.username)!}" class="form-control" placeholder="Username" required="true"/>
                     </div>
                     <div class="form-group">
-                        <input type="password" name="password" value="${(user.password)!}" class="form-control" placeholder="Password" required="true"/>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="confirm" value="${(user.password)!}" class="form-control" placeholder="Confirm" required="true"/>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" value="${(user.password)!}" class="form-control" placeholder="Password" required="true"/>
                     </div>
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     <button class="btn btn-md btn-primary btn-block" type="submit">Save</button>
@@ -73,20 +75,24 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Username</th>
-                            <th>Active</th>
-                            <th>Created</th>
+                            <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
                             <#list users as user>
-                            <tr>
-                                <td>${user.id}</td>
-                                <td>${user.name}</td>
-                                <td>${user.email}</td>
-                                <td>${user.username}</td>
-                                <td>${(user.active)?string('True','False')}</td>
-                                <td>${user.creationDate}</td>
-                            </tr>
+                                <tr>
+                                    <td>${(user.id)!}</td>
+                                    <td>${(user.name)!}</td>
+                                    <td>${(user.email)!}</td>
+                                    <td>${(user.username)!}</td>
+                                    <td>
+                                        <a href="/user/${(user.id)!}" class="btn btn-xs btn-link pull-left">Edit</a>
+                                        <form role="form" method="post" action="/user/${(user.id)!}">
+                                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                            <button class="btn btn-xs btn-link" type="submit">Del</button>
+                                        </form>
+                                    </td>
+                                </tr>
                             </#list>
                         </tbody>
                     </table>

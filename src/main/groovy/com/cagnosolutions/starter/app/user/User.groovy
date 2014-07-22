@@ -1,7 +1,8 @@
-package com.cagnosolutions.starter.app.domain
+package com.cagnosolutions.starter.app.user
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
 import javax.persistence.Id
 
 /**
@@ -13,13 +14,12 @@ import javax.persistence.Id
 class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.AUTO)
     Long id
     String name
     String email
     String username
     String password
-    Boolean active = Boolean.TRUE
-    Date creationDate
-    Date lastSeenDate
+    Long active = 1
+    String role = "ROLE_USER"
 }

@@ -1,42 +1,23 @@
-# core-settings
-
 spring:
-
-  profiles.active: production
-
-  main:
-    web-environment: true
-    show-banner: false
-    log-startup-info: false
+  profiles:
+    active: production
 
   server:
     port: 8080
     address: 127.0.0.1
-    sessionTimeout: 30
-    contextPath: /root
-
-  freemarker:
-    templateLoaderPath: classpath:/templates/
-    prefix:
-    suffix: .ftl
-    cache: false
-    mode: HTML5
 
 security:
-  basic:
-    enabled: true
-    path: /secure/**
   user:
-    name: admin
     role: ADMIN
+    name: admin
     password: admin
+  enableCsrf: true
 
 http:
   mappers:
     jsonPrettyPrint: true
 
 ---
-
 spring:
   profiles: development
 
@@ -45,16 +26,11 @@ spring:
     url: jdbc:h2:./h2data;MODE=MySQL
     username: sa
     password: sa
-    properties:
-        hibernate.dialect: org.hibernate.dialect.H2Dialect
 
   jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
+    generateDdl: true
 
 ---
-
 spring:
   profiles: production
 
@@ -63,10 +39,6 @@ spring:
     url: jdbc:mysql://localhost:3306/application?createDatabaseIfNotExist=true
     username: root
     password: root
-    properties:
-      hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
 
   jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
+    generateDdl: true
