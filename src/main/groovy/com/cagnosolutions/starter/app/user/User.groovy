@@ -16,10 +16,6 @@ class User {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     Long id
-    String name
-    String email
-    String username
-    String password
+    String name, email, username, password, role = "ROLE_USER"
     Long active = 1
-    String role = "ROLE_USER"
 }

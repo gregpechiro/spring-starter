@@ -12,33 +12,33 @@ import org.springframework.web.bind.annotation.RequestMethod
  */
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/secure/user")
 class UserController {
 
     @Autowired
     UserRepository dao
 
-    @RequestMapping(method=RequestMethod.GET)
+    @RequestMapping(method=[RequestMethod.GET])
     String viewAll(Model model) {
-        model.addAttribute("users", dao.findAll())
+        model.addAttribute "users", dao.findAll()
         "user"
     }
 
-    @RequestMapping(method=RequestMethod.POST)
+    @RequestMapping(method=[RequestMethod.POST])
     String addOrEdit(User user) {
-        user = dao.save(user)
+        user = dao.save user
         "redirect:/user/" + user.id
     }
 
-    @RequestMapping(value=["/{id}"], method=RequestMethod.GET)
+    @RequestMapping(value=["/{id}"], method=[RequestMethod.GET])
     String view(@PathVariable Long id, Model model) {
         model.addAllAttributes([user: dao.findOne(id), users: dao.findAll()])
         "user"
     }
 
-    @RequestMapping(value=["/{id}"], method=RequestMethod.POST)
+    @RequestMapping(value=["/{id}"], method=[RequestMethod.POST])
     String delete(@PathVariable Long id) {
-        dao.delete(id)
+        dao.delete id
         "redirect:/user"
     }
 
