@@ -1,4 +1,4 @@
 spring-starter
 ==============
-
-spring boot starting workspace
+<img src="http://groovy.codehaus.org/images/groovy-logo-medium.png"/>
+spring boot starter (using groovy)
