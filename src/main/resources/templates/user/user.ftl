@@ -2,11 +2,11 @@
 <html lang="en">
 <head id="head">
     <title>Users</title>
-    <#include "stubs/header.ftl">
+    <#include "../stubs/header.ftl">
 </head>
     <body id="body">
 
-        <#include "stubs/navbar.ftl">
+        <#include "../stubs/navbar.ftl">
 
         <!-- content -->
         <div id="content" class="container">

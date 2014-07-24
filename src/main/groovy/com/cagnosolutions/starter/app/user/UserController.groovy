@@ -21,7 +21,7 @@ class UserController {
     @RequestMapping(method=[RequestMethod.GET])
     String viewAll(Model model) {
         model.addAttribute "users", dao.findAll()
-        "user"
+        "user/user"
     }
 
     @RequestMapping(method=[RequestMethod.POST])
@@ -33,7 +33,7 @@ class UserController {
     @RequestMapping(value=["/{id}"], method=[RequestMethod.GET])
     String view(@PathVariable Long id, Model model) {
         model.addAllAttributes([user: dao.findOne(id), users: dao.findAll()])
-        "user"
+        "user/user"
     }
 
     @RequestMapping(value=["/{id}"], method=[RequestMethod.POST])
