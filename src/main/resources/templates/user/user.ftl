@@ -18,8 +18,8 @@
                         <form role="form" method="post" action="/secure/user">
                             <#if user??>
                                 <div class="form-group">
-                                    <label>Created On:</label><span> ${user.creationDate?string.medium}</span> <br/>
-                                    <label>Last Seen:</label><span> ${user.lastSeenDate?string.medium}</span>
+                                    <label>Created On:</label><span> ${(user.creationDate?string.medium)!}</span> <br/>
+                                    <label>Last Seen:</label><span> ${(user.lastSeenDate?string.medium)!}</span>
                                 </div>
                             </#if>
                             <div class="form-group">
@@ -110,7 +110,7 @@
                         <span id="delete">
                             <form role="form" method="post" action="/secure/user/{username}">
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                                <button type="button" class="btn btn-primary btn-md">Yes, Remove User</button>
+                                <button type="submit" class="btn btn-primary btn-md">Yes, Remove User</button>
                             </form>
                         </span>
 

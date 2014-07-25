@@ -29,6 +29,10 @@ class UserController {
         if(!user.username.contains(" ")) {
             def userz = dao.findOne user.username
             if((userz == null)||(userz != null && userz.uuid == user.uuid)) {
+                if(user.uuid == "") {
+                    user.uuid = UUID.randomUUID().toString()
+                    user.creationDate = new Date()
+                }
                 dao.save user
                 attr.addAttribute "alertSuccess", "Successfully saved user ${user.name}"
                 return "redirect:/secure/user/${user.username}"

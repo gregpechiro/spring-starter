@@ -32,14 +32,14 @@
     <div id="alert" class="col-sm-10 col-sm-offset-1">
         <div class="alert alert-danger alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            Error: ${RequestParameters.alertError}
+            ${RequestParameters.alertError}
         </div>
     </div>
 <#elseif RequestParameters.alertSuccess??>
     <div id="alert" class="col-sm-10 col-sm-offset-1">
         <div class="alert alert-success alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            Success: ${RequestParameters.alertSuccess}
+            ${RequestParameters.alertSuccess}
         </div>
     </div>
 </#if>

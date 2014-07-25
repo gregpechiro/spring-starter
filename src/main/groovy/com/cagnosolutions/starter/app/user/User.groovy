@@ -25,15 +25,4 @@ class User {
     Date creationDate
     Date lastSeenDate
     String uuid
-
-    User() {
-        def timestamp = new Date()
-        creationDate = timestamp
-        lastSeenDate = timestamp
-        uuid = UUID.randomUUID().toString()
-    }
-
-    void setPassword(String password) {
-        this.password = new BCryptPasswordEncoder().encode(password)
-    }
 }

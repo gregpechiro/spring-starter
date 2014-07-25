@@ -1,4 +1,6 @@
 package com.cagnosolutions.starter.app
+import com.cagnosolutions.starter.app.user.UserRepository
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.ExceptionHandler
@@ -15,16 +17,17 @@ import java.security.Principal
 
 @Controller
 class ApplicationController {
-
     @RequestMapping(value=["/"], method=[RequestMethod.GET])
     String index() {
         "index"
     }
-
 }
 
 @Controller
 class SecurityController {
+
+    @Autowired
+    UserRepository dao
 
     @RequestMapping(value=["/login"])
     String login() {
@@ -33,6 +36,11 @@ class SecurityController {
 
     @RequestMapping(value=["/secure/login"], method=[RequestMethod.GET])
     String secureLogin(@RequestParam String forward, HttpSession session, Principal principal) {
+        if(principal.name != "admin"){
+            def user = dao.findOne(principal.name)
+            user.lastSeenDate = new Date()
+            dao.saveAndFlush user
+        }
         session.setAttribute "authenticated", principal.name
         "redirect:/secure/" + forward
     }
