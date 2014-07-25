@@ -7,19 +7,39 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <#--<img class="navbar-brand logo" src="/static/img/logo.png"/>-->
+            <a class="navbar-brand" href="/"><i class="fa fa-home"></i> Home</a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <#if username??>
-                    <li><a href="/logout">Logged in as ${username}, Logout</a></li>
+                <#if authenticated??>
+                    <li><a href="/logout"><i class="fa fa-unlock"></i> Logout (${authenticated})</a></li>
                 <#else>
-                    <li><a href="/secure/login?forward=user">Login</a></li>
+                    <li><a href="/secure/login?forward=user"><i class="fa fa-user"></i> Login</a></li>
                 </#if>
             </ul>
         </div>
     </div>
 </div>
-<div class="col-sm-offset-1 col-sm-10">
-    <legend><img class="img-responsive logo" src="/static/img/logo.png"/></legend>
-</div>
+
+<#if RequestParameters.alert??>
+    <div id="alert" class="col-sm-10 col-sm-offset-1">
+        <div class="alert alert-info alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            ${RequestParameters.alert}
+        </div>
+    </div>
+<#elseif RequestParameters.alertError??>
+    <div id="alert" class="col-sm-10 col-sm-offset-1">
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Error: ${RequestParameters.alertError}
+        </div>
+    </div>
+<#elseif RequestParameters.alertSuccess??>
+    <div id="alert" class="col-sm-10 col-sm-offset-1">
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Success: ${RequestParameters.alertSuccess}
+        </div>
+    </div>
+</#if>

@@ -24,7 +24,7 @@ class ApplicationController {
 }
 
 @Controller
-class AuthenticationController {
+class SecurityController {
 
     @RequestMapping(value=["/login"])
     String login() {
@@ -33,7 +33,7 @@ class AuthenticationController {
 
     @RequestMapping(value=["/secure/login"], method=[RequestMethod.GET])
     String secureLogin(@RequestParam String forward, HttpSession session, Principal principal) {
-        session.setAttribute "username", principal.name
+        session.setAttribute "authenticated", principal.name
         "redirect:/secure/" + forward
     }
 }

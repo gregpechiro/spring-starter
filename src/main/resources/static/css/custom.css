@@ -3,41 +3,6 @@ body {
     background-color: #fff;
 }
 
-.logo {
-    height: 50px;
-    width: 250px;
+.footer {
+    margin-top: 25px;
 }
-
-.background {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    background: 50% 50% no-repeat;
-    background-size: cover;
-    opacity: 0.2;
-    background-image: url('/static/img/bg.png');
-}
-
-.carousel {
-    height: 500px;
-    margin-bottom: 60px;
-}
-
-.carousel .item {
-    background-color: #777;
-}
-
-.carousel-inner > .item > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-}
-
-.carousel-caption {
-    z-index: 10;
-}
-
