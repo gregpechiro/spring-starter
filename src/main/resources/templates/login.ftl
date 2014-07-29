@@ -19,6 +19,9 @@
                     ${(error)!}
                     <form role="form" method="post" action="/login">
                         <div class="form-group">
+                            <span class="text-danger">
+                                ${(RequestParameters.error??)?string('There has been an error logging you in.<br/><br/>','')}
+                            </span>
                             <input type="text" name="username" class="form-control" placeholder="Username" autofocus="true" required="true"/>
                         </div>
                         <div class="form-group">

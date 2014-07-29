@@ -1,8 +1,7 @@
 package com.cagnosolutions.starter.app.user
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
-
 import javax.persistence.Entity
+import javax.persistence.GeneratedValue
 import javax.persistence.Id
 import javax.persistence.Table
 
@@ -16,13 +15,9 @@ import javax.persistence.Table
 class User {
 
     @Id
-    String username
-    String password
-    String role
-    String name
-    String email
-    Boolean active
-    Date creationDate
-    Date lastSeenDate
-    String uuid
+    @GeneratedValue
+    Long id
+    String name, email, username, password, role = "ROLE_USER"
+    Long creation, lastSeen
+    short active = 1
 }

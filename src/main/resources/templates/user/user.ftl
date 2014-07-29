@@ -18,8 +18,13 @@
                         <form role="form" method="post" action="/secure/user">
                             <#if user??>
                                 <div class="form-group">
-                                    <label>Created On:</label><span> ${(user.creationDate?string.medium)!}</span> <br/>
-                                    <label>Last Seen:</label><span> ${(user.lastSeenDate?string.medium)!}</span>
+                                    <label>Created On:</label><span> ${(user.creation?number_to_datetime)!}</span> <br/>
+                                    <label>Last Seen:</label><span> ${(user.lastSeen?number_to_datetime)!}</span> <br/>
+                                    <label>Account: </label>
+                                    <a href="/secure/user/${(user.id)!}
+                                        ${(user.active==1)?string('?active=false','?active=true')}">
+                                            ${(user.active==1)?string('Enabled (click to disable)','Disabled (click to enable)')}
+                                    </a> <br/>
                                 </div>
                             </#if>
                             <div class="form-group">
@@ -32,20 +37,10 @@
                                 <input type="text" id="username" name="username" value="${(user.username)!}" class="form-control" placeholder="Username" required="true"/>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="password" name="password" value="${(user.password)!}" class="form-control" placeholder="Password" required="true"/>
+                                <input type="password" id="password" name="password" value="${(user.password)!}" class="form-control" placeholder="Password" required="true"/>
                             </div>
-                            <div class="form-group">
-                                <input type="text" id="role" name="role" value="${(user.role)!}" class="form-control" placeholder="Role" required="true"/>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <input id="activeCheck" type="checkbox" ${((user.active)?c)!} />
-                                    </span>
-                                    <input type="text" id="activeInput" name="active" value="${((user.active)?c)!}" class="form-control" placeholder="Active" required="true">
-                                </div>
-                            </div>
-                            <input type="hidden" name="uuid" value="${(user.uuid)!}"/>
+                            <input type="hidden" name="id" value="${(user.id)!}"/>
+                            <input type="hidden" name="creation" value="${(user.creation?c)!}"/>
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             <button class="btn btn-md btn-primary btn-block" type="submit">Save</button>
                         </form>
@@ -65,7 +60,7 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Username</th>
-                                    <th>Active</th>
+                                    <th>Enabled</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
@@ -75,12 +70,12 @@
                                             <td>${(user.name)!}</td>
                                             <td>${(user.email)!}</td>
                                             <td>${(user.username)!}</td>
-                                            <td>${(user.active)?c}</td>
+                                            <td>${(user.active == 1)?c}</td>
                                             <td>
-                                                <a href="/secure/user/${(user.username)!}" class="btn btn-xs btn-primary">
+                                                <a href="/secure/user/${(user.id)!}" class="btn btn-xs btn-primary">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-danger btn-xs" data-id="${(user.name+','+user.username)!}" data-toggle="modal" data-target="#deleteCheck">
+                                                <a href="#" class="btn btn-danger btn-xs" data-id="${(user.id)!}" data-toggle="modal" data-target="#deleteCheck">
                                                     <i class="fa fa-trash-o"></i>
                                                 </a>
                                             </td>
@@ -103,12 +98,12 @@
                         <h4 class="modal-title">Are you sure?</h4>
                     </div>
                     <div class="modal-body">
-                        Permantly remove user <span id="data_name"></span>? This action cannot be undone.
+                        Permantly remove user? This action cannot be undone.
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default btn-md pull-left" data-dismiss="modal">No, Cancel</button>
                         <span id="delete">
-                            <form role="form" method="post" action="/secure/user/{username}">
+                            <form role="form" method="post" action="/secure/user/{id}">
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                 <button type="submit" class="btn btn-primary btn-md">Yes, Remove User</button>
                             </form>
@@ -128,17 +123,11 @@
         <script>
             $(document).ready(function() {
 
-                // toggle active/disabled checkbox and value
-                (function(){var activeCheck=document.getElementById('activeCheck');var activeInput=document.getElementById('activeInput');
-                if(!activeCheck.checked && activeInput.value == 'true'){activeCheck.checked = true;}activeCheck.onclick=function(){
-                if(activeCheck.checked){activeInput.value='true';}else{activeInput.value='false';}}})();
-
                 // toggle safe delete modal popup
                 $('a[data-toggle="modal"]').click(function(){
-                    var id = $(this).data('id').split(',');
-                    $('.modal-body #data_name').html(id[0]);
+                    var id = $(this).data('id');
                     var form = $('.modal #delete');
-                    form.html(form.html().replace('{username}',id[1]));
+                    form.html(form.html().replace('{id}',id));
                 });
             });
         </script>
