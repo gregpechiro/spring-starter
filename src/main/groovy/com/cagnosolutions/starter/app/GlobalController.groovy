@@ -18,7 +18,7 @@ import java.security.Principal
  */
 
 @Controller
-class ApplicationController {
+class IndexController {
     @RequestMapping(value=["/"], method=[RequestMethod.GET])
     String index() {
         "index"
@@ -26,7 +26,7 @@ class ApplicationController {
 }
 
 @Controller
-class SecurityController {
+class Authentication {
 
     @Autowired
     UserData userData
@@ -49,7 +49,7 @@ class SecurityController {
 }
 
 @Controller
-class ExceptionHandlerController {
+class ErrorHandler {
 
     @ExceptionHandler(value=[Exception.class, RuntimeException.class])
     String errors(Exception e, Model model) {
