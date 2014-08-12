@@ -50,7 +50,7 @@ class UserController {
             user.active = (active) ? 1 : 0
             userService.save user
         }
-        model.addAllAttributes([user: user, users: userData.findAll()])
+        model.addAllAttributes([user: user, users: userService.findAll()])
         "user/user"
     }
 
