@@ -47,7 +47,7 @@ class UserController {
     String view(@PathVariable Long id, Model model, @RequestParam(required = false) Boolean active) {
         def user = userService.findOne id
         if(active != null) {
-            user.active = (active) ? 1 : 0
+            user.active = (active) ? 1 as short : 0 as short
             userService.save user
         }
         model.addAllAttributes([user: user, users: userService.findAll()])
