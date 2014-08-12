@@ -22,20 +22,20 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes
 class UserController {
 
     @Autowired
-    UserData userData
+    UserService userService
 
     @RequestMapping(method = RequestMethod.GET)
     String viewAll(Model model) {
-        model.addAttribute "users", userData.findAll()
+        model.addAttribute "users", userService.findAll()
         "user/user"
     }
 
     @RequestMapping(method = RequestMethod.POST)
     String addOrEdit(User user, RedirectAttributes attr) {
-        if(userData.canUpdate(user.id, user.username)) {
+        if(userService.canUpdate(user.id, user.username)) {
             if(user.id == null || user.password[0] != '$')
                 user.password = new BCryptPasswordEncoder().encode(user.password)
-            userData.save user
+            userService.save user
             attr.addFlashAttribute "alertSuccess", "Successfully saved user ${user.name}"
             return "redirect:/secure/user/${user.id}"
         }
@@ -45,10 +45,10 @@ class UserController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     String view(@PathVariable Long id, Model model, @RequestParam(required = false) Boolean active) {
-        def user = userData.findOne id
+        def user = userService.findOne id
         if(active != null) {
             user.active = (active) ? 1 : 0
-            userData.save user
+            userService.save user
         }
         model.addAllAttributes([user: user, users: userData.findAll()])
         "user/user"
@@ -56,7 +56,7 @@ class UserController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.POST)
     String delete(@PathVariable Long id) {
-        userData.delete id
+        userService.delete id
         "redirect:/secure/user"
     }
 
