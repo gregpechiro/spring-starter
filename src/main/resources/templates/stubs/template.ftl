@@ -2,11 +2,11 @@
 <html lang="en">
 <head id="head">
     <title>Template</title>
-    <#include "header.ftl">
+    <#include "../stubs/header.ftl">
 </head>
     <body id="body">
 
-        <#include "navbar.ftl">
+        <#include "../stubs/navbar.ftl">
 
         <!-- content -->
         <div class="jumbotron">
@@ -25,9 +25,9 @@
         </div>
         <!-- content -->
 
-        <#include "footer.ftl">
+        <#include "../stubs/footer.ftl">
 
-        <#include "scripts.ftl">
+        <#include "../stubs/scripts.ftl">
 
     </body>
 </html>
