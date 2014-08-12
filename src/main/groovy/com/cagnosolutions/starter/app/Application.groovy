@@ -1,4 +1,5 @@
 package com.cagnosolutions.starter.app
+
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
@@ -13,14 +14,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
-
 import javax.sql.DataSource
+
 /**
  * Created by Scott Cagno.
  * Copyright Cagno Solutions. All rights reserved.
  */
 
-
+@CompileStatic
 @ComponentScan
 @EnableJpaRepositories
 @EnableAutoConfiguration
@@ -30,6 +31,7 @@ class Application {
     }
 }
 
+@CompileStatic
 @Configuration
 class StaticMapping extends WebMvcConfigurerAdapter {
     void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -37,6 +39,7 @@ class StaticMapping extends WebMvcConfigurerAdapter {
     }
 }
 
+@CompileStatic
 @Configuration
 @EnableWebMvcSecurity
 class SecurityConfig extends WebSecurityConfigurerAdapter {
