@@ -1,7 +1,7 @@
 package com.cagnosolutions.starter.app
 
 import groovy.transform.CompileStatic
-import com.cagnosolutions.starter.app.user.UserData
+import com.cagnosolutions.starter.app.user.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -32,7 +32,7 @@ class IndexController {
 class Authentication {
 
     @Autowired
-    UserData userData
+    UserService userService
 
     @RequestMapping(value = "/login")
     String login() {
@@ -42,9 +42,9 @@ class Authentication {
     @RequestMapping(value = "/secure/login", method = RequestMethod.GET)
     String secureLogin(@RequestParam String forward, HttpSession session, Principal principal) {
         if(principal.name != "admin") {
-            def user = userData.findOne principal.name
+            def user = userService.findOne principal.name
             user.lastSeen = System.currentTimeMillis()
-            userData.save user
+            userService.save user
         }
         session.setAttribute "authenticated", principal.name
         "redirect:/secure/$forward"
