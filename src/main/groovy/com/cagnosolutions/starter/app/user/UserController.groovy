@@ -1,5 +1,6 @@
 package com.cagnosolutions.starter.app.user
 
+import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Controller
@@ -16,44 +17,44 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes
  */
 
 @CompileStatic
-@Controller
-@RequestMapping("/secure/user")
+@Controller(value = "userController")
+@RequestMapping(value = "/secure/user")
 class UserController {
 
     @Autowired
     UserData userData
 
-    @RequestMapping(method=[RequestMethod.GET])
+    @RequestMapping(method = RequestMethod.GET)
     String viewAll(Model model) {
         model.addAttribute "users", userData.findAll()
         "user/user"
     }
 
-    @RequestMapping(method=[RequestMethod.POST])
+    @RequestMapping(method = RequestMethod.POST)
     String addOrEdit(User user, RedirectAttributes attr) {
         if(userData.canUpdate(user.id, user.username)) {
             if(user.id == null || user.password[0] != '$')
                 user.password = new BCryptPasswordEncoder().encode(user.password)
             userData.save user
-            attr.addAttribute "alertSuccess", "Successfully saved user ${user.name}"
+            attr.addFlashAttribute "alertSuccess", "Successfully saved user ${user.name}"
             return "redirect:/secure/user/${user.id}"
         }
-        attr.addAttribute "alertError", "Unable to save user ${user.name}"
+        attr.addFlashAttribute "alertError", "Unable to save user ${user.name}"
         "redirect:/secure/user"
     }
 
-    @RequestMapping(value=["/{id}"], method=[RequestMethod.GET])
-    String view(@PathVariable Long id, Model model, @RequestParam(required=false) Boolean active) {
-        def user = userData.findOne(id)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    String view(@PathVariable Long id, Model model, @RequestParam(required = false) Boolean active) {
+        def user = userData.findOne id
         if(active != null) {
             user.active = (active) ? 1 : 0
-            userData.save(user)
+            userData.save user
         }
         model.addAllAttributes([user: user, users: userData.findAll()])
         "user/user"
     }
 
-    @RequestMapping(value=["/{id}"], method=[RequestMethod.POST])
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
     String delete(@PathVariable Long id) {
         userData.delete id
         "redirect:/secure/user"
