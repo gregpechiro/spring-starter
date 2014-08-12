@@ -2,12 +2,18 @@ spring:
   profiles:
     active: production
 
-  server:
-    port: 8080
-    address: 127.0.0.1
-
   freemarker:
     exposeSessionAttributes: true
+
+server:
+  port: 8080
+  address: 127.0.0.1
+  
+shell:
+  auth:
+    simple:
+      username: remote
+      password: remote
 
 security:
   user:
