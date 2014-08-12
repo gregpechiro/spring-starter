@@ -8,12 +8,6 @@ spring:
 server:
   port: 8080
   address: 127.0.0.1
-  
-shell:
-  auth:
-    simple:
-      username: remote
-      password: remote
 
 security:
   user:
@@ -21,6 +15,10 @@ security:
     name: admin
     password: admin
   enableCsrf: true
+  
+endpoints:
+  shutdown:
+    enabled: true
 
 http:
   mappers:
