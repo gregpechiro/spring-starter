@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes
  * Copyright Cagno Solutions. All rights reserved.
  */
 
+@CompileStatic
 @Controller
 @RequestMapping("/secure/user")
 class UserController {
