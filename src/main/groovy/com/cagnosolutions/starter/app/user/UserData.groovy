@@ -1,5 +1,6 @@
 package com.cagnosolutions.starter.app.user
 
+import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
@@ -15,8 +16,9 @@ import org.springframework.stereotype.Service
  * Copyright Cagno Solutions. All rights reserved.
  */
 
-@Service
-class UserData {
+@CompileStatic
+@Service(value = "userService")
+class UserService {
 
     @Autowired
     UserRepository repo
@@ -53,6 +55,7 @@ class UserData {
 
 }
 
+@CompileStatic
 @Repository
 interface UserRepository extends JpaRepository<User, Long> {
 
