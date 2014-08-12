@@ -10,6 +10,7 @@ import javax.persistence.Table
  * Copyright Cagno Solutions. All rights reserved.
  */
 
+@CompileStatic
 @Entity
 @Table(name="user")
 class User {
