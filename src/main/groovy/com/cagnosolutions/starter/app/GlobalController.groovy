@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
-
 import javax.servlet.http.HttpSession
 import java.security.Principal
 
@@ -17,6 +16,7 @@ import java.security.Principal
  * Copyright Cagno Solutions. All rights reserved.
  */
 
+@CompileStatic
 @Controller
 class IndexController {
     @RequestMapping(value=["/"], method=[RequestMethod.GET])
@@ -25,6 +25,7 @@ class IndexController {
     }
 }
 
+@CompileStatic
 @Controller
 class Authentication {
 
@@ -48,6 +49,7 @@ class Authentication {
     }
 }
 
+@CompileStatic
 @Controller
 class ErrorHandler {
 
