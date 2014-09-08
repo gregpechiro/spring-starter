@@ -33,6 +33,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.codehaus.groovy:groovy")
     compile("mysql:mysql-connector-java")
+	compile("javax.mail:mail:1.4.7")
     runtime("com.h2database:h2")
 }
 
