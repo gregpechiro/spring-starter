@@ -98,7 +98,7 @@
 						<h4 class="modal-title">Are you sure?</h4>
 					</div>
 					<div class="modal-body">
-						Permantly remove user? This action cannot be undone.
+						Permanently remove user? This action cannot be undone.
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default btn-md pull-left" data-dismiss="modal">No, Cancel</button>
