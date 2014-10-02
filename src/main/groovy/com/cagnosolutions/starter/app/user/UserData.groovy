@@ -32,7 +32,7 @@ class UserService {
     }
 
     boolean canUpdate(Long id, String username) {
-        (repo.canUpdate(id, username) == 0 || id == null)
+        (repo.canUpdate((id == null) ? 0 : id, username) == 0)
     }
 
     User findOne(Long id) {
