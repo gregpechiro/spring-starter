@@ -1,4 +1,4 @@
-package com.cagnosolutions.starter.app.email
+package com.cagnosolutions.app.main.email
 
 import freemarker.template.Configuration
 import freemarker.template.Template
@@ -8,11 +8,7 @@ import org.springframework.mail.javamail.JavaMailSender
 import org.springframework.mail.javamail.MimeMessageHelper
 import org.springframework.stereotype.Service
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils
-
 import javax.mail.internet.MimeMessage
-/**
- * Created by greg on 9/8/14.
- */
 
 @CompileStatic
 @Service(value = "mailService")

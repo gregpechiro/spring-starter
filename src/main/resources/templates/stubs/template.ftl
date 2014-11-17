@@ -6,9 +6,9 @@
 	</head>
 	<body id="body">
 
-		<#include "../stubs/navbar.ftl"/>
+		<#include "default-navbar.ftl"/>
 
-		<!-- content -->
+		<!-- *** beg content *** -->
 		<div class="jumbotron">
 			<div class="container">
                 <span class="pull-left col-sm-8">
@@ -23,7 +23,7 @@
                 </span>
 			</div>
 		</div>
-		<!-- content -->
+		<!-- *** beg content *** -->
 
 		<#include "../stubs/footer.ftl"/>
 

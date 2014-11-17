@@ -26,7 +26,7 @@ spring:
 server:
   port: 8080
   address: 0.0.0.0
-  session-timeout: 30
+  session-timeout: 1200
 
 security:
   user:
@@ -42,9 +42,3 @@ endpoints:
 http:
   mappers:
     jsonPrettyPrint: true
-
-mail:
-  host: smtp.mandrillapp.com
-  port: 587
-  user: scottiecagno@gmail.com
-  pass: AyRsB5cI5H4bcrbheDKfzQ

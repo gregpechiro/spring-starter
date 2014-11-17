@@ -1,14 +1,12 @@
-package com.cagnosolutions.starter.app.email
+package com.cagnosolutions.app.main.email
 
-/**
- * Created by greg on 9/8/14.
- */
+import groovy.transform.CompileStatic
+
+@CompileStatic
 class Email {
 
 	String[] to
-	String from
-	String subject
-	String body
+	String from, subject, body
 
 	def setAll(String from, String subject, String... to) {
 		this.to = to

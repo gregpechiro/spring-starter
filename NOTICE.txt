@@ -1,0 +1,10 @@
+
+   Spring Starter Project
+   Copyright 2014 Cagno Solutions, LLC
+
+   This product includes software developed at
+   Cagno Solutions, LLC and NEI, Inc. Websites
+   for both companies can be located below:
+
+   - http://www.cagnosolutions.com/
+   - http://www.neienvelopes.com/

@@ -6,7 +6,7 @@
 	</head>
 	<body id="body">
 
-		<#include "stubs/navbar.ftl"/>
+		<#include "stubs/default-navbar.ftl"/>
 
 		<!-- content -->
 		<div class="jumbotron">

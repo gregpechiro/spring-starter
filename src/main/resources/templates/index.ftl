@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head id="head">
+	<head>
 		<title>Landing Page</title>
 		<#include "stubs/header.ftl"/>
 	</head>
-	<body id="body">
+	<body>
+		<#include "stubs/default-navbar.ftl"/>
 
-		<#include "stubs/navbar.ftl"/>
+		<!-- *** beg content *** -->
 
-		<!-- content -->
 		<div class="jumbotron">
 			<div class="container">
                 <span class="pull-left col-sm-8">

@@ -1,0 +1,1 @@
+all images, logos etc for the site should be placed in here.
