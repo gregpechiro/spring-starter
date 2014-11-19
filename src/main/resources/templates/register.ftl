@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Login</title>
+		<title>Register</title>
 		<#include "stubs/header.ftl"/>
 	</head>
 	<body>
@@ -23,7 +23,7 @@
 							<h3 class="panel-title">Please Login</h3>
 						</div>
 						<div class="panel-body">
-							<form role="form" method="post" action="/login">
+							<form role="form" method="post" action="/register">
 								<div class="form-group">
 									<input type="text" name="username" class="form-control" placeholder="Username" autofocus="true" required="true"/>
 								</div>
@@ -35,7 +35,7 @@
 							</form>
 							<br/>
 							<p class="text-muted text-center">
-								Need an account? <a href="/register">Register here</a>
+								Have an account? <a href="/login">Login here</a>
 							</p>
 						</div>
 					</div>

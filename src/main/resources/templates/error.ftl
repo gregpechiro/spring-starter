@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head id="head">
-		<title>Error Page</title>
+	<head>
+		<title>Error ${(error)!}</title>
 		<#include "stubs/header.ftl"/>
 	</head>
-	<body id="body">
+	<body>
 
 		<#include "stubs/default-navbar.ftl"/>
 
-		<!-- content -->
-		<div id="content" class="container">
-			<div class="col-sm-10 col-sm-offset-1">
-				<legend>${(error)!} <span class="text-danger">${(message)!}</span></legend>
-				<pre>${(exception)!'An unknown error has occoured. That really sucks.'}</pre>
+		<!-- *** beg content section *** -->
+		<section id="content" class="container">
+			<div class="jumbotron transparent text-center">
+				<h1>
+					<span class="text-danger">
+						<i class="fa fa-ambulance"></i> Oops!
+					</span>
+					<small>${(error)!}</small>
+				</h1>
+				<p>Maybe you should head back to higher ground</p>
 			</div>
-		</div>
-		<!-- content -->
+		</section>
+		<!-- *** beg content section *** -->
 
 		<#include "stubs/footer.ftl"/>
 

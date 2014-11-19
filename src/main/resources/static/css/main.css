@@ -2,23 +2,27 @@
  *  SITE WIDE CSS GOES IN HERE
  */
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #eee;
-    background-image: url('/static/img/background-texture.png')
-
+    background: #eee url('/static/img/background-texture.png');
+    margin-bottom: 60px;
 }
 
-footer .copyright {
-    position: fixed;
-    bottom: 10px;
-    left: 15px;
+footer  {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 35px;
+    /*background-color: #f5f5f5;*/
 }
 
-footer .terms {
-    position: fixed;
-    bottom: 10px;
-    right: 15px;
+.transparent {
+    background-color: transparent;
 }
 
 input.form-control {
@@ -29,6 +33,6 @@ button.btn {
     border-radius: 2px;
 }
 
-div.panel {
+div.panel,.well, table {
     border-radius: 2px;
 }

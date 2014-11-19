@@ -1,14 +1,8 @@
 <!-- *** beg footer injection *** -->
-<footer>
-	<p class="text-muted">
-		<small>
-			<div class="copyright">
-				<i class="fa fa-copyright"></i> Cagno Solutions
-			</div>
-			<div class="terms">
-				<a href="/terms">Terms</a> | <a href="/policy">Policy</a>
-			</div>
-		</small>
-	</p>
+<footer class="text-muted text-center">
+	<small>
+		<i class="fa fa-copyright"></i> ${app.owner} -
+		<a href="/terms">Terms</a> | <a href="/privacy">Privacy</a>
+	</small>
 </footer>
 <!-- *** end footer injection *** -->

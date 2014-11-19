@@ -1,4 +1,4 @@
-package com.cagnosolutions.app.util
+package com.cagnosolutions.app
 
 import groovy.transform.CompileStatic
 import org.springframework.security.core.Authentication
