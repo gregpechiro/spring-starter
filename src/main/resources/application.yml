@@ -8,10 +8,10 @@ spring:
     url: jdbc:mysql://localhost:3306/spring_starter?createDatabaseIfNotExist=true
     username: root
     password: root
-    maxActive: 150
-    maxIdle: 10
-    minIdle: 5
-    initialSize: 5
+    maxActive: 25
+    maxIdle: 5
+    minIdle: 1
+    initialSize: 1
     minEvictableIdleTimeMillis: 1800000
     timeBetweenEvictionRunsMillis: 1800000
     maxWait: 10000
@@ -26,7 +26,7 @@ spring:
 server:
   port: 8080
   address: 0.0.0.0
-  session-timeout: 1200
+  session-timeout: 1800
 
 security:
   user:
@@ -34,10 +34,6 @@ security:
     name: admin
     password: admin
   enableCsrf: true
-  
-endpoints:
-  shutdown:
-    enabled: true
 
 http:
   mappers:

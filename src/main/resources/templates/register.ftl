@@ -25,13 +25,16 @@
 						<div class="panel-body">
 							<form role="form" method="post" action="/register">
 								<div class="form-group">
+									<input type="text" name="name" class="form-control" placeholder="Full Name" autofocus="true" required="true"/>
+								</div>
+								<div class="form-group">
 									<input type="text" name="username" class="form-control" placeholder="Username" autofocus="true" required="true"/>
 								</div>
 								<div class="form-group">
 									<input type="password" name="password" class="form-control" placeholder="Password" required="true"/>
 								</div>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-								<button class="btn btn-md btn-block btn-primary" type="submit">Login</button>
+								<button class="btn btn-md btn-block btn-success" type="submit">Register Account</button>
 							</form>
 							<br/>
 							<p class="text-muted text-center">
