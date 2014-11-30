@@ -29,7 +29,7 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-security"
     compile "org.springframework.boot:spring-boot-starter-web"
     compile "com.fasterxml.jackson.core:jackson-databind"
-    compile "org.springframework.boot:spting-hateos"
+    compile "org.springframework.hateoas:spring-hateoas"
     compile "org.codehaus.groovy:groovy-all"
     compile "mysql:mysql-connector-java"
     compile "javax.mail:mail:1.4.7"
