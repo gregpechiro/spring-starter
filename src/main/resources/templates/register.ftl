@@ -28,7 +28,7 @@
 									<input type="text" name="name" class="form-control" placeholder="Full Name" autofocus="true" required="true"/>
 								</div>
 								<div class="form-group">
-									<input type="text" name="username" class="form-control" placeholder="Username" autofocus="true" required="true"/>
+									<input type="email" name="username" class="form-control" placeholder="Email" autofocus="true" required="true"/>
 								</div>
 								<div class="form-group">
 									<input type="password" name="password" class="form-control" placeholder="Password" required="true"/>

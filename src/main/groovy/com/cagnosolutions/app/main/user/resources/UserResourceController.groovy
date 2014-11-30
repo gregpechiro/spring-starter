@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseBody
 
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo
+
 @CompileStatic
 @Controller
 @RequestMapping(value = "/api/users")
@@ -22,11 +24,14 @@ class UserResourceController {
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	@ResponseBody List<UserResource> getUsers() {
-		userResourceAssembler.toResources userService.findAll()
+		def userResource = userResourceAssembler.toResources userService.findAll()
+		userResource
 	}
 
 	@RequestMapping(value = "/{userId}", method = RequestMethod.GET)
 	@ResponseBody UserResource getUser(@PathVariable Long userId) {
-		userResourceAssembler.toResource userService.findOne(userId)
+		def userResource = userResourceAssembler.toResource userService.findOne(userId)
+		userResource.add linkTo(UserResourceController.class).withRel("users")
+		userResource
 	}
 }

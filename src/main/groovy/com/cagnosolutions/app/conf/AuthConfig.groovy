@@ -1,5 +1,4 @@
 package com.cagnosolutions.app.conf
-
 import com.cagnosolutions.app.CustomAuthenticationSuccessHandler
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
