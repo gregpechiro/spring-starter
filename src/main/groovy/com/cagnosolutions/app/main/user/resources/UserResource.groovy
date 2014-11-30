@@ -6,7 +6,5 @@ import org.springframework.hateoas.ResourceSupport
 
 @CompileStatic
 class UserResource extends ResourceSupport {
-
 	User user
-
 }
