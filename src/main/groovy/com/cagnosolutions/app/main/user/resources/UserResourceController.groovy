@@ -1,4 +1,5 @@
 package com.cagnosolutions.app.main.user.resources
+
 import com.cagnosolutions.app.main.user.UserService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
