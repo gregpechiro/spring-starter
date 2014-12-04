@@ -9,7 +9,7 @@ html {
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: #eee url('/static/img/background-texture.png');
+    background: #eee url('/static/img/bg-texture.png');
     margin-bottom: 60px;
 }
 
