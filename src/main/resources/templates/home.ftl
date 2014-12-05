@@ -18,7 +18,7 @@
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="panel panel-default">
+				<div class="panel panel-default translucent">
 					<div class="panel-heading">About ${app.name}</div>
 					<div class="panel-body">
 						A simple, clean, starting workspace for your next spring-boot project. A project estimator is
@@ -27,7 +27,7 @@
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="panel panel-default">
+				<div class="panel panel-default translucent">
 					<div class="panel-heading">Contact Us</div>
 					<div class="panel-body">
 						${app.name} <br/>
@@ -38,7 +38,7 @@
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="panel panel-default">
+				<div class="panel panel-default translucent">
 					<div class="panel-heading">Quick Links</div>
 					<div class="panel-body">
 						<a href="/terms">View Terms & Conditions</a> <br/>

@@ -14,6 +14,6 @@ class User {
     @Id
     @GeneratedValue
     Long id
-    String name, username, password, role = "ROLE_USER"
+    String fname, lname, username, password, role = "ROLE_USER"
     Short active = 1
 }
