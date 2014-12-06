@@ -25,10 +25,10 @@
 								<form role="form" method="post" action="/register">
 									<div class="form-group row">
 										<div class="col-xs-6">
-											<input type="text" name="fname" class="form-control" placeholder="First" autofocus="true" required="true"/>
+											<input type="text" name="firstName" class="form-control" placeholder="First" autofocus="true" required="true"/>
 										</div>
 										<div class="col-xs-6">
-											<input type="text" name="lname" class="form-control" placeholder="Last" autofocus="true" required="true"/>
+											<input type="text" name="lastName" class="form-control" placeholder="Last" autofocus="true" required="true"/>
 										</div>
 									</div>
 									<div class="form-group">

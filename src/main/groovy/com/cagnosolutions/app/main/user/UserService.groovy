@@ -1,4 +1,5 @@
 package com.cagnosolutions.app.main.user
+
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Page

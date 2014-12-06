@@ -36,6 +36,7 @@ class AuthConfig extends WebSecurityConfigurerAdapter {
 		http.formLogin()
 			.loginPage("/login").defaultSuccessUrl("/secure")
 			.successHandler(new CustomAuthenticationSuccessHandler())
+		http.httpBasic()
 		http.logout()
 			.invalidateHttpSession(true)
 			.logoutSuccessUrl("/")

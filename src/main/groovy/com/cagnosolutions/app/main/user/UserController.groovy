@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
+import java.security.Principal
+
 @CompileStatic
 @Controller
 @RequestMapping(value = "/secure/user")
@@ -20,7 +22,7 @@ class UserController {
     UserService userService
 
     @RequestMapping(method = RequestMethod.GET)
-    String viewAll(Model model) {
+    String viewAll(Model model, Principal principal) {
         model.addAttribute "users", userService.findAll()
         "user/user"
     }
@@ -31,10 +33,10 @@ class UserController {
             if(user.id == null || user.password[0] != '$')
                 user.password = new BCryptPasswordEncoder().encode(user.password)
             userService.save user
-            attr.addFlashAttribute "alertSuccess", "Successfully saved user ${user.name}"
+            attr.addFlashAttribute "alertSuccess", "Successfully saved user!"
             return "redirect:/secure/user/${user.id}"
         }
-        attr.addFlashAttribute "alertError", "Unable to save user ${user.name}"
+        attr.addFlashAttribute "alertError", "Unable to save user!"
         "redirect:/secure/user"
     }
 

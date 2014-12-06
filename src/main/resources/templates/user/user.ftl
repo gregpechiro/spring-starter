@@ -16,22 +16,13 @@
 					<div class="panel-heading">Add or Update User <span class="pull-right"><a href="/secure/user">Add New</a></span></div>
 					<div class="panel-body">
 						<form role="form" method="post" action="/secure/user">
-							<#if user??>
-								<div class="form-group">
-									<label>Created On:</label><span> ${(user.creation?number_to_datetime)!}</span> <br/>
-									<label>Last Seen:</label><span> ${(user.lastSeen?number_to_datetime)!}</span> <br/>
-									<label>Account: </label>
-									<a href="/secure/user/${(user.id)!}
-                                        ${(user.active==1)?string('?active=false','?active=true')}">
-										${(user.active==1)?string('Enabled (click to disable)','Disabled (click to enable)')}
-									</a> <br/>
+							<div class="form-group row">
+								<div class="col-xs-6">
+									<input type="text" id="firstName" name="firstName" value="${(user.firstName)!}" class="form-control" placeholder="First" required="true" autofocus="true"/>
 								</div>
-							</#if>
-							<div class="form-group">
-								<input type="text" id="name" name="name" value="${(user.name)!}" class="form-control" placeholder="Name" required="true" autofocus="true"/>
-							</div>
-							<div class="form-group">
-								<input type="email" id="email" name="email" value="${(user.email)!}" class="form-control" placeholder="Email" required="true"/>
+								<div class="col-xs-6">
+									<input type="text" id="lastName" name="lastName" value="${(user.lastName)!}" class="form-control" placeholder="First" required="true" autofocus="true"/>
+								</div>
 							</div>
 							<div class="form-group">
 								<input type="text" id="username" name="username" value="${(user.username)!}" class="form-control" placeholder="Username" required="true"/>
@@ -58,8 +49,8 @@
 								<thead>
 									<tr>
 										<th>Name</th>
-										<th>Email</th>
 										<th>Username</th>
+										<th>Role</th>
 										<th>Enabled</th>
 										<th>Actions</th>
 									</tr>
@@ -67,9 +58,9 @@
 								<tbody>
 									<#list users as user>
 										<tr>
-											<td>${(user.name)!}</td>
-											<td>${(user.email)!}</td>
+											<td>${(user.firstName)!} ${(user.lastName)!}</td>
 											<td>${(user.username)!}</td>
+											<td>${(user.role)?split('_')[1]?lower_case?cap_first!'N/A'}</td>
 											<td>${(user.active == 1)?c}</td>
 											<td>
 												<a href="/secure/user/${(user.id)!}" class="btn btn-xs btn-primary">
