@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody
 
 @CompileStatic
 @Controller
-@RequestMapping(value = "/api/users")
+@RequestMapping(value = "/resource/users")
 class UserResourceController {
 
 	@Autowired
