@@ -17,6 +17,7 @@ import org.springframework.hateoas.config.EnableHypermediaSupport
 @Import(RepositoryRestMvcConfiguration.class)
 @EnableHypermediaSupport(type = EnableHypermediaSupport.HypermediaType.HAL)
 class Application {
+
     static void main(String... args) {
         SpringApplication.run Application, args
     }
