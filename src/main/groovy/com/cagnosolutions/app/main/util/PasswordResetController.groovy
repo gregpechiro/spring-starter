@@ -28,8 +28,8 @@ class PasswordResetController {
 	String resetPasswordAction(@RequestParam String username, RedirectAttributes attr) {
 		def user = userService.findOne username
 		if (user == null || user.id == null) {
-			attr.addFlashAttribute "alertError", "Unable to find a user called ${username}!"
-			"redirect:/reset/password"
+			attr.addFlashAttribute "alertError", "Unable to find user ${username}!"
+			return "redirect:/reset/password"
 		}
 		def pass = newPasswordHash()
 		user.password = new BCryptPasswordEncoder().encode(pass)

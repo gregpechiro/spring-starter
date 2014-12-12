@@ -1,4 +1,5 @@
 package com.cagnosolutions.app.main.email
+
 import com.sun.jersey.api.client.Client
 import com.sun.jersey.api.client.ClientResponse
 import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter
@@ -8,7 +9,6 @@ import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils
-
 import javax.ws.rs.core.MediaType
 
 @CompileStatic
