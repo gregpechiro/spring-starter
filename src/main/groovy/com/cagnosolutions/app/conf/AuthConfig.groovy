@@ -25,7 +25,7 @@ class AuthConfig extends WebSecurityConfigurerAdapter {
 	void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ADMIN")
 		auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(new BCryptPasswordEncoder())
-			.usersByUsernameQuery("SELECT username, reset, active FROM user WHERE username=?")
+			.usersByUsernameQuery("SELECT username, password, active FROM user WHERE username=?")
 			.authoritiesByUsernameQuery("SELECT username, role FROM user WHERE username=?")
 	}
 

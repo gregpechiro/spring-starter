@@ -9,6 +9,7 @@
     <#include "../stubs/default-navbar.ftl"/>
 		<!-- *** beg content section *** -->
 		<section id="content" class="container">
+            <#include "../stubs/alerts.ftl"/>
 			<div class="row">
 				<div class="col-sm-4 col-sm-offset-4">
 					<div class="">
@@ -19,7 +20,7 @@
 							<div class="panel-body">
 								<form role="form" method="post" action="/reset/password">
 									<div class="form-group">
-                                    <label for="username">Account Email Address</label>
+                                    <label for="username">Account Email</label>
 										<input id="username" type="email" name="username" class="form-control" placeholder="Email" required="true"/>
 									</div>
 									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
