@@ -33,7 +33,12 @@ dependencies {
     compile "org.springframework.hateoas:spring-hateoas"
     compile "org.codehaus.groovy:groovy-all"
     compile "mysql:mysql-connector-java"
-    compile "javax.mail:mail:1.4.7"
+    //compile "javax.mail:mail:1.4.7"
+
+    compile "com.sun.jersey:jersey-core:1.18.3"
+    compile "com.sun.jersey:jersey-client:1.18.3"
+    compile "com.sun.jersey.contribs:jersey-multipart:1.18.3"
+
     compile "org.springframework.plugin:spring-plugin-core:1.1.0.RELEASE" // for @EnableHypermediaSupport
 }
 
