@@ -1,5 +1,5 @@
 (function(){
-	// toggle show password javascript
+	// toggle show reset.ftl javascript
 	$('button[id="toggle-pass"]').on('click', function(){
 		var icon = $('button[id="toggle-pass"] > i');
 		var input = $('input[id="toggle-pass"]')[0];
@@ -8,7 +8,7 @@
 			input.type = "text";
 		} else {
 			icon.removeClass('fa-eye').addClass('fa-eye-slash');
-			input.type = "password";
+			input.type = "reset.ftl";
 		}
 	});
 })();
