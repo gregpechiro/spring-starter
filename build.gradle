@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '1.1.9.RELEASE'
+        springBootVersion = '1.2.0.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -24,22 +24,29 @@ repositories {
 }
 
 dependencies {
+
+    // template, database, security, web and groovy support
     compile "org.springframework.boot:spring-boot-starter-freemarker"
     compile "org.springframework.boot:spring-boot-starter-data-jpa"
-    compile "org.springframework.boot:spring-boot-starter-data-rest"
     compile "org.springframework.boot:spring-boot-starter-security"
     compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.codehaus.groovy:groovy-all"
+
+    // mysql database connector support
+    compile "mysql:mysql-connector-java"
+
+    // rest/hateoas support
+    compile "org.springframework.boot:spring-boot-starter-data-rest"
     compile "com.fasterxml.jackson.core:jackson-databind"
     compile "org.springframework.hateoas:spring-hateoas"
-    compile "org.codehaus.groovy:groovy-all"
-    compile "mysql:mysql-connector-java"
-    //compile "javax.mail:mail:1.4.7"
 
+    // email support
     compile "com.sun.jersey:jersey-core:1.18.3"
     compile "com.sun.jersey:jersey-client:1.18.3"
     compile "com.sun.jersey.contribs:jersey-multipart:1.18.3"
 
-    compile "org.springframework.plugin:spring-plugin-core:1.1.0.RELEASE" // for @EnableHypermediaSupport
+    // @EnableHypermediaSupport support
+    compile "org.springframework.plugin:spring-plugin-core:1.1.0.RELEASE"
 }
 
 task wrapper(type: Wrapper) {
