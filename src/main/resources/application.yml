@@ -36,7 +36,3 @@ security:
   basic:
     enabled: true
     path: "/resource/**"
-
-http:
-  mappers:
-    json-pretty-print: true
