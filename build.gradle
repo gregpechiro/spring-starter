@@ -1,18 +1,15 @@
 buildscript {
-    ext {
-        springBootVersion = '1.2.0.RELEASE'
-    }
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.1.RELEASE")
     }
 }
 
 apply plugin: 'idea'
 apply plugin: 'groovy'
-apply plugin: 'spring-boot' 
+apply plugin: 'org.springframework.boot'
 
 jar {
     baseName = 'spring-starter'
@@ -35,20 +32,17 @@ dependencies {
     // mysql database connector support
     compile "mysql:mysql-connector-java"
 
-    // rest/hateoas support
-    compile "org.springframework.boot:spring-boot-starter-data-rest"
-    compile "com.fasterxml.jackson.core:jackson-databind"
-    compile "org.springframework.hateoas:spring-hateoas"
-
     // email support
     compile "com.sun.jersey:jersey-core:1.18.3"
     compile "com.sun.jersey:jersey-client:1.18.3"
     compile "com.sun.jersey.contribs:jersey-multipart:1.18.3"
 
-    // @EnableHypermediaSupport support
-    compile "org.springframework.plugin:spring-plugin-core:1.1.0.RELEASE"
 }
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.0'
+}
+
+bootRun {
+	addResources = true
 }

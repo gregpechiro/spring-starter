@@ -2,14 +2,14 @@
 <html lang="en">
 	<head>
 		<title>Home</title>
-    <#include "../stubs/header.ftl"/>
+    <#include "../includes/head.ftl"/>
 		<style>textarea{resize: none;}</style>
 	</head>
 	<body>
-    <#include "../stubs/default-navbar.ftl"/>
+    <#include "../includes/default-navbar.ftl"/>
 		<!-- *** beg content section *** -->
-		<section id="content" class="container">
-            <#include "../stubs/alerts.ftl"/>
+		<div id="content" class="container">
+            <#include "../includes/alerts.ftl"/>
 			<div class="row">
 				<div class="col-sm-4 col-sm-offset-4">
 					<div class="panel panel-default translucent">
@@ -36,10 +36,10 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
 		<!-- *** end content section *** -->
-    <#include "../stubs/scripts.ftl"/>
-    <#include "../stubs/footer.ftl"/>
+    <#include "../includes/scripts.ftl"/>
+    <#include "../includes/footer.ftl"/>
     <script>
         (function(){
 			$('form[id="password-reset"]').on('submit',function(){

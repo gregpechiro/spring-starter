@@ -2,21 +2,23 @@
 <html lang="en">
 	<head>
 		<title>Home</title>
-		<#include "stubs/header.ftl"/>
+		<#include "includes/head.ftl"/>
 	</head>
 	<body>
 
-		<#include "stubs/default-navbar.ftl"/>
+		<#include "includes/default-navbar.ftl"/>
 
 		<!-- *** beg content section *** -->
-		<section id="content" class="container">
+		<div id="content" class="container">
 			<div class="row">
+				<div class="col-lg-12">
 
+				</div>
 			</div>
-		</section>
+		</div>
 		<!-- *** end content section *** -->
 
-		<#include "stubs/scripts.ftl"/>
-		<#include "stubs/footer.ftl"/>
+		<#include "includes/scripts.ftl"/>
+		<#include "includes/footer.ftl"/>
 	</body>
 </html>

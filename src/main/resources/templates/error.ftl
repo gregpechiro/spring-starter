@@ -2,14 +2,14 @@
 <html lang="en">
 	<head>
 		<title>Error ${(error)!}</title>
-		<#include "stubs/header.ftl"/>
+		<#include "includes/head.ftl"/>
 	</head>
 	<body>
 
-		<#include "stubs/default-navbar.ftl"/>
+		<#include "includes/default-navbar.ftl"/>
 
 		<!-- *** beg content section *** -->
-		<section id="content" class="container">
+		<div id="content" class="container">
 			<div class="jumbotron transparent text-center">
 				<h1>
 					<span class="text-danger">
@@ -19,10 +19,10 @@
 				</h1>
 				<p>Maybe you should head back to higher ground</p>
 			</div>
-		</section>
+		</div>
 		<!-- *** beg content section *** -->
 
-		<#include "stubs/footer.ftl"/>
+		<#include "includes/footer.ftl"/>
 
 	</body>
 </html>

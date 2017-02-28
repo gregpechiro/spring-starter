@@ -1,14 +1,14 @@
-(function(){
-	// toggle show reset.ftl javascript
-	$('button[id="toggle-pass"]').on('click', function(){
-		var icon = $('button[id="toggle-pass"] > i');
-		var input = $('input[id="toggle-pass"]')[0];
-		if(icon.hasClass('fa-eye-slash')) {
-			icon.removeClass('fa-eye-slash').addClass('fa-eye');
-			input.type = "text";
-		} else {
-			icon.removeClass('fa-eye').addClass('fa-eye-slash');
-			input.type = "reset.ftl";
-		}
-	});
-})();
+$('button.toggle-pass').click(function() {
+	var btn = $(this);
+	var input = btn.closest('form').find('input.toggle-pass');
+	var i = btn.find('i');
+	if (input.attr('type') === 'password') {
+		i.removeClass("fa-eye-slash");
+		i.addClass("fa-eye");
+		input.attr('type', 'text');
+	} else {
+		i.removeClass("fa-eye");
+		i.addClass("fa-eye-slash");
+		input.attr('type', 'password');
+	}
+});

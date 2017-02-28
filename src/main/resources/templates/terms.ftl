@@ -2,14 +2,14 @@
 <html lang="en">
 	<head>
 		<title>Terms & Conditions</title>
-		<#include "stubs/header.ftl"/>
+		<#include "includes/head.ftl"/>
 	</head>
 	<body>
 
-		<#include "stubs/default-navbar.ftl"/>
+		<#include "includes/default-navbar.ftl"/>
 
 		<!-- *** beg content section *** -->
-		<section id="content" class="container">
+		<div id="content" class="container">
 			<div class="row">
 				<h2>${app.name} Terms and Conditions of Use</h2>
 				<h3>Terms</h3>
@@ -101,9 +101,9 @@
 					Pennsylvania without regard to its conflict of law provisions.
 				</p>
 			</div>
-		</section>
+		</div>
 		<!-- *** end content section *** -->
 
-		<#include "stubs/footer.ftl"/>
+		<#include "includes/footer.ftl"/>
 	</body>
 </html>

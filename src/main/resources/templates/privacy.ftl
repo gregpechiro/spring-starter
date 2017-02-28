@@ -2,14 +2,14 @@
 <html lang="en">
 	<head>
 		<title>Privacy Policy</title>
-		<#include "stubs/header.ftl"/>
+		<#include "includes/head.ftl"/>
 	</head>
 	<body>
 
-		<#include "stubs/default-navbar.ftl"/>
+		<#include "includes/default-navbar.ftl"/>
 
 		<!-- *** beg content section *** -->
-		<section id="content" class="container">
+		<div id="content" class="container">
 			<div class="row">
 				<h2>${app.name} Privacy Policy</h2>
 				<h2>Privacy Policy</h2>
@@ -54,9 +54,9 @@
 					that the confidentiality of personal information is protected and maintained.
 				</p>
 			</div>
-		</section>
+		</div>
 		<!-- *** end content section *** -->
 
-		<#include "stubs/footer.ftl"/>
+		<#include "includes/footer.ftl"/>
 	</body>
 </html>
